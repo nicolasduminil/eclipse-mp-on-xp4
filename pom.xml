@@ -28,6 +28,8 @@
     <version.arquillian.bom>1.7.0.Alpha13</version.arquillian.bom>
     <version.org.wildfly.arquillian>3.0.0.Final</version.org.wildfly.arquillian>
     <version.slf4j>1.7.36</version.slf4j>
+    <version.jkube.plugin>1.10.1</version.jkube.plugin>
+    <version.jakartaee>8.0.0</version.jakartaee>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -41,7 +43,7 @@
       <dependency>
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-api</artifactId>
-        <version>8.0.0</version>
+        <version>${version.jakartaee}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
@@ -170,6 +172,29 @@
               </goals>
             </execution>
           </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.jkube</groupId>
+          <artifactId>openshift-maven-plugin</artifactId>
+          <version>${version.jkube.plugin}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>resource</goal>
+                <goal>build</goal>
+                <goal>apply</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <enricher>
+              <config>
+                <jkube-service>
+                  <type>NodePort</type>
+                </jkube-service>
+              </config>
+            </enricher>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
