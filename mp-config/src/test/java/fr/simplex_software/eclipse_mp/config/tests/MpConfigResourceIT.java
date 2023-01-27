@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.*;
 @RunAsClient
 public class MpConfigResourceIT
 {
-  private final URL ENDPOINT_URL = new URL ("http://localhost:8080/hello");
+  private final URL ENDPOINT_URL = new URL ("http://localhost:8080/config/test");
 
   public MpConfigResourceIT() throws MalformedURLException {}
 

@@ -9,7 +9,7 @@ import javax.inject.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("/hello")
+@Path("/test")
 @ApplicationScoped
 public class MpConfigResource
 {
