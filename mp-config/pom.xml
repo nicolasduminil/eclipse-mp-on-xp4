@@ -12,13 +12,6 @@
   <packaging>war</packaging>
   <name>Eclipse Micro Profile on JBoss EAP 7.4.8/XP4 :: The MP Config module
   </name>
-  <dependencies>
-    <dependency>
-      <groupId>org.eclipse.microprofile.config</groupId>
-      <artifactId>microprofile-config-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
   <build>
     <plugins>
       <plugin>

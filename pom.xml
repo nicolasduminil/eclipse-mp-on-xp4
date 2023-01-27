@@ -17,12 +17,11 @@
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.war.plugin>3.3.2</version.war.plugin>
-    <version.microprofile.bom>4.0.0.GA</version.microprofile.bom>
     <version.server.bom>7.4.3.GA</version.server.bom>
     <version.server.bootable-jar>4.0.0.GA-redhat-00003
     </version.server.bootable-jar>
     <version.failsafe.plugin>3.0.0-M8</version.failsafe.plugin>
-    <version.rest-assured>4.3.1</version.rest-assured>
+    <version.rest-assured>5.0.1</version.rest-assured>
     <version.wildfly-jar.plugin>8.1.0.Final</version.wildfly-jar.plugin>
     <version.junit.bom>5.9.1</version.junit.bom>
     <version.arquillian.bom>1.7.0.Alpha13</version.arquillian.bom>
@@ -34,11 +33,11 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.jboss.bom</groupId>
-        <artifactId>jboss-eap-xp-microprofile</artifactId>
-        <version>${version.microprofile.bom}</version>
+        <groupId>org.eclipse.microprofile</groupId>
+        <artifactId>microprofile</artifactId>
+        <version>5.0</version>
         <type>pom</type>
-        <scope>import</scope>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>jakarta.platform</groupId>
@@ -73,6 +72,11 @@
       <groupId>jakarta.platform</groupId>
       <artifactId>jakarta.jakartaee-api</artifactId>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.microprofile</groupId>
+      <artifactId>microprofile</artifactId>
+      <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.wildfly.arquillian</groupId>
@@ -114,11 +118,11 @@
             <failOnMissingWebXml>false</failOnMissingWebXml>
           </configuration>
         </plugin>
-        <plugin>
+        <!--plugin>
           <groupId>org.wildfly.plugins</groupId>
           <artifactId>wildfly-maven-plugin</artifactId>
           <version>${version.wildfly.plugin}</version>
-        </plugin>
+        </plugin-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
