@@ -10,6 +10,7 @@
   <name>Eclipse Micro Profile on JBoss EAP 7.4.8/XP4 :: The master POM</name>
   <modules>
     <module>mp-config</module>
+    <module>mp-health</module>
   </modules>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
@@ -92,7 +93,7 @@
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
-      <version>4.3.1</version>
+      <version>${version.rest-assured}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
