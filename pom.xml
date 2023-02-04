@@ -31,6 +31,8 @@
     <version.slf4j>1.7.36</version.slf4j>
     <version.jkube.plugin>1.10.1</version.jkube.plugin>
     <version.jakartaee>8.0.0</version.jakartaee>
+    <server.jvm.jpms.args>--add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED</server.jvm.jpms.args>
+    <client.jvm.jpms.args>--add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED</client.jvm.jpms.args>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -94,6 +96,7 @@
     <dependency>
       <groupId>org.eclipse.microprofile</groupId>
       <artifactId>microprofile</artifactId>
+      <scope>provided</scope>
       <type>pom</type>
     </dependency>
     <dependency>
@@ -165,7 +168,9 @@
                     ${project.build.directory}/${project.artifactId}-bootable.jar
                   </bootable.jar>
                   <arquillian.xml>arquillian.xml</arquillian.xml>
+                  <server.jvm.args>${server.jvm.jpms.args}</server.jvm.args>
                 </systemPropertyVariables>
+                <argLine>${client.jvm.jpms.args}</argLine>
                 <redirectTestOutputToFile>false</redirectTestOutputToFile>
               </configuration>
             </execution>

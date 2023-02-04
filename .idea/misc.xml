@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/mp-config" />
     <file type="web" url="file://$PROJECT_DIR$/mp-health" />
+    <file type="web" url="file://$PROJECT_DIR$/mp-open-api" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
