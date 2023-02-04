@@ -11,6 +11,7 @@
   <modules>
     <module>mp-config</module>
     <module>mp-health</module>
+    <module>mp-open-api</module>
   </modules>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
@@ -75,6 +76,12 @@
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
         <version>${version.slf4j}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>1.33</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
