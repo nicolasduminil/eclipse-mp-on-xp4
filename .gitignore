@@ -4,7 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/module*.xml
+.idea/*.xml
 *.iws
 *.iml
 *.ipr
