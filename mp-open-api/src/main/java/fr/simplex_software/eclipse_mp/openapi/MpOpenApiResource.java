@@ -1,20 +1,22 @@
 package fr.simplex_software.eclipse_mp.openapi;
 
-//import org.eclipse.microprofile.openapi.annotations.*;
+import org.eclipse.microprofile.openapi.annotations.*;
 import org.eclipse.microprofile.openapi.annotations.responses.*;
+import org.eclipse.microprofile.openapi.annotations.tags.*;
 
 import javax.enterprise.context.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
+@Tag(name = "OpenAPI Example", description = "Get a text in various formats")
 @RequestScoped
 @Path("/test")
 public class MpOpenApiResource
 {
   @GET
   @Path("/text")
-  //@Operation(description = "Getting a text formatted test string.")
-  //@APIResponse(responseCode = "200", description = "Execution has succeeded")
+  @Operation(description = "Getting a text formatted test string.")
+  @APIResponse(responseCode = "200", description = "Execution has succeeded")
   public String sayHelloText()
   {
     return "Hello World !";
@@ -23,9 +25,9 @@ public class MpOpenApiResource
   @GET
   @Path("/json")
   @Produces(MediaType.APPLICATION_JSON)
-  //@Operation(description = "Getting a JSON formatted test string.")
+  @Operation(description = "Getting a JSON formatted test string.")
   @APIResponse(responseCode = "200", description = "Execution has succeeded")
-  //@APIResponse(responseCode = "500", description = "JSON Error")
+  @APIResponse(responseCode = "500", description = "JSON Error")
   public Greetings sayHelloJson()
   {
     return new Greetings("Hello World !");
@@ -34,9 +36,9 @@ public class MpOpenApiResource
   @GET
   @Path("/xml")
   @Produces(MediaType.APPLICATION_XML)
-  //@Operation(description = "Getting an XML formatted test string.")
-  //@APIResponse(responseCode = "200", description = "Execution has succeeded")
-  //@APIResponse(responseCode = "500", description = "XML Error")
+  @Operation(description = "Getting an XML formatted test string.")
+  @APIResponse(responseCode = "200", description = "Execution has succeeded")
+  @APIResponse(responseCode = "500", description = "XML Error")
   public Greetings sayHelloXml()
   {
     return new Greetings("Hello World !");

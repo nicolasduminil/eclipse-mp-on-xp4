@@ -1,7 +1,7 @@
 package fr.simplex_software.eclipse_mp.openapi;
 
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.*;
+import javax.ws.rs.*;
+import javax.ws.rs.core.*;
 
 @ApplicationPath("/")
 public class MpOpenapiApp extends Application

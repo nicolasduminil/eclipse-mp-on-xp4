@@ -10,8 +10,7 @@
   </parent>
   <artifactId>mp-open-api</artifactId>
   <packaging>war</packaging>
-  <name>Eclipse Micro Profile on JBoss EAP 7.4.8/XP4 :: The MP OpenAPI
-    module
+  <name>Eclipse Micro Profile on JBoss EAP 7.4.8/XP4 :: The MP OpenAPI module
   </name>
   <dependencies>
     <dependency>

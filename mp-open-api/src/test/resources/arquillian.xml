@@ -5,8 +5,6 @@
   <container qualifier="bootable-jar" default="true">
     <configuration>
       <property name="jarFile">${bootable.jar}</property>
-      <property name="javaVmArguments">${server.jvm.args}</property>
-      <property name="serverConfig">${jboss.configuration.file:standalone-microprofile.xml}</property>
       <property name="allowConnectingToRunningServer">false</property>
       <property name="managementAddress">127.0.0.1</property>
       <property name="managementPort">9990</property>
