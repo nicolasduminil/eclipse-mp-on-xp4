@@ -2,9 +2,17 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+node_modules/
+dist/
+*.class
+*.log
+*.jar
+*.app
+*.exe
+*.war
 
 ### IntelliJ IDEA ###
-.idea/*.xml
+.idea/
 *.iws
 *.iml
 *.ipr
