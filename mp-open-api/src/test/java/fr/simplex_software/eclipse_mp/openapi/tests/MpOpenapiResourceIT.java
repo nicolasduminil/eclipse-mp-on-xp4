@@ -43,20 +43,24 @@ public class MpOpenapiResourceIT
     String responseContent = get(baseURL.toURI().resolve("/openapi")).then()
       .statusCode(200)
       .extract().asString();
-    Map<String, Object> paths =
+    Map<String, Object> apiMap =
       (Map<String, Object>) ((Map<String, Object>) new Yaml().load(
         responseContent)).get("paths");
-    assertThat(paths).isNotEmpty();
-    assertThat(paths.size()).isEqualTo(3);
-    Map<String, Object> getAs = (Map<String, Object>)paths.get("/test/text");
-    assertThat(getAs).isNotEmpty();
-    Map<String, Object> responses = (Map<String, Object>)getAs.get("responses");
-    assertThat(responses).isNotEmpty();
-    Map<String, Object> http200Response = (Map<String, Object>) responses.get("200");
+    assertThat(apiMap).isNotEmpty();
+    assertThat(apiMap.size()).isEqualTo(3);
+    assertThat(
+      ((Map<String, Object>) apiMap.get("/test/json"))).isNotEmpty();
+    assertThat(
+      ((Map<String, Object>) apiMap.get("/test/xml"))).isNotEmpty();
+    apiMap = (Map<String, Object>)apiMap.get("/test/text");
+    assertThat(apiMap).isNotEmpty();
+    apiMap.forEach((k, v) -> System.out.println("### key: " + k + " value: " + v));
+    apiMap = (Map<String, Object>)apiMap.get("get");
+    assertThat(apiMap).isNotEmpty();
+    apiMap.forEach((k, v) -> System.out.println("### key: " + k + " value: " + v));
+    apiMap = (Map<String, Object>)apiMap.get("responses");
+    assertThat(apiMap).isNotEmpty();
+    Map<String, Object> http200Response = (Map<String, Object>) apiMap.get("200");
     assertThat(http200Response).isNotEmpty();
-    assertThat(
-      ((Map<String, Object>) paths.get("/test/json"))).isNotEmpty();
-    assertThat(
-      ((Map<String, Object>) paths.get("/test/xml"))).isNotEmpty();
   }
 }
