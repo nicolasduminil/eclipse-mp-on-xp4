@@ -1,23 +1,21 @@
 package fr.simplex_software.eclipse_mp.config.tests;
 
 import io.restassured.http.*;
-import org.jboss.arquillian.container.test.api.*;
-import org.jboss.arquillian.junit5.*;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.*;
 
 import java.net.*;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-@ExtendWith(ArquillianExtension.class)
-@RunAsClient
-public class MpConfigResourceIT
+@Tag("CloudTests")
+public class CloudMpConfigResourceIT
 {
-  private final URL ENDPOINT_URL = new URL ("http://localhost:8080/config/test");
+  private final URL ENDPOINT_URL = new URL("http://mp-config-nicolasduminil-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/config/test");
 
-  public MpConfigResourceIT() throws MalformedURLException {}
+  public CloudMpConfigResourceIT() throws MalformedURLException
+  {
+  }
 
   @Test
   public void testEndpointCallShouldSucceed() throws MalformedURLException
