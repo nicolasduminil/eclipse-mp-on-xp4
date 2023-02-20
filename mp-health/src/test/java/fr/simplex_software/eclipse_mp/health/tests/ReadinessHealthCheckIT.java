@@ -13,9 +13,10 @@ import static org.hamcrest.Matchers.*;
 
 @ExtendWith(ArquillianExtension.class)
 @RunAsClient
+@Tag("LocalTests")
 public class ReadinessHealthCheckIT extends HealthCheck
 {
-  private final URL ENDPOINT_URL = new URL("http://localhost:9990/health/live");
+  private final URL ENDPOINT_URL = new URL("http://localhost:9990/health/ready");
 
   public ReadinessHealthCheckIT() throws MalformedURLException
   {
@@ -29,8 +30,13 @@ public class ReadinessHealthCheckIT extends HealthCheck
       .then()
       .contentType(ContentType.JSON)
       .header("Content-Type", containsString("application/json"))
+      .log()
+      .body()
       .body("status", is("UP"),
-        "checks", hasSize(1),
-        "checks.status", hasItem("UP"));
+        "checks", hasSize(5),
+        "checks.status", hasItems("UP"),
+        "checks.name", hasItems("server-state", "deployments-status", "boot-errors"),
+        "checks.data", hasSize(5),
+        "checks.data.value", hasItems("running"));
   }
 }

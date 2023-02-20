@@ -10,8 +10,7 @@ public class HealthCheck
   @Deployment(testable = false)
   public static Archive<?> deployment()
   {
-    return ShrinkWrap.create(WebArchive.class,
-        ReadinessHealthCheckIT.class.getSimpleName() + ".war")
-      .addClasses(MpHealthApp.class);
+    return ShrinkWrap.create(WebArchive.class, "health-check.war")
+      .addClasses(LivenessHealthCheck.class);
   }
 }

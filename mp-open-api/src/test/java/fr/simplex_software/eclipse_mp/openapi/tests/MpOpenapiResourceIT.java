@@ -18,6 +18,7 @@ import static org.assertj.core.api.Assertions.*;
 
 @ExtendWith(ArquillianExtension.class)
 @RunAsClient
+@Tag("LocalTests")
 public class MpOpenapiResourceIT
 {
   private final static String DEPLOYMENT_NAME =

@@ -13,6 +13,7 @@ import static org.hamcrest.Matchers.*;
 
 @ExtendWith(ArquillianExtension.class)
 @RunAsClient
+@Tag("LocalTests")
 public class LivenessHealthCheckIT extends HealthCheck
 {
   private final URL ENDPOINT_URL = new URL("http://localhost:9990/health/live");
@@ -29,8 +30,15 @@ public class LivenessHealthCheckIT extends HealthCheck
       .then()
       .contentType(ContentType.JSON)
       .header("Content-Type", containsString("application/json"))
+      .log()
+      .body()
       .body("status", is("UP"),
-        "checks", hasSize(1),
-        "checks.status", hasItem("UP"));
+        "checks", hasSize(2),
+        "checks.status", hasItem("UP"),
+        "checks.name", hasItem("System Uptime Health Check"),
+        "checks.data.loadAverage", hasSize(2),
+        "checks.data.loadAverage-per-processor", hasSize(2),
+        "checks.data.loadAverage-max", hasSize(2),
+        "checks.data.loadAverage-max", hasItem("0.75"));
   }
 }

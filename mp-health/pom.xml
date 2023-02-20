@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>mp-health</artifactId>
+  <packaging>war</packaging>
   <name>Eclipse Micro Profile on JBoss EAP 7.4.8/XP4 :: The MP Health module</name>
   <build>
     <plugins>
